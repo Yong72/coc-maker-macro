@@ -2,14 +2,14 @@ use rand;
 use rand::Rng;
 use std::io;
 fn main() {
-    println! ("[매크로 버전: 0.1.8]\n만든사람: Nick un BAN\n----------");
+    println! ("[매크로 버전: 0.1.9]\n만든사람: Nick un BAN\n----------");
     println! ("씨오씨 캐릭터 만드는 매크로 프로그램\n");
     println! ("캐릭터 이름을 입력해 주세요.\n");
-    let mut name = String::new();
-    io::stdin().read_line(&mut name)
+    let mut user_name = String::new();
+    io::stdin().read_line(&mut user_name)
         .expect("입력값을 읽지 못했습니다.");
-    let name = name.trim();
-    println!("\n캐릭터의 이름: {}", name);
+    let user_name = user_name.trim();
+    println!("\n캐릭터의 이름: {}", user_name);
     generater();
     loop {
     println!("\n다시 굴리고 싶으면 엔터를 눌러주세요.");
@@ -17,8 +17,9 @@ fn main() {
     let mut word = String::new();
     io::stdin().read_line(&mut word)
         .expect("입력값을 읽지 못했습니다.");
+    //엔터를 누르면 반복, e를 누르면 종료합니다
     if word == "\n" {
-        println!("캐릭터의 이름: {}", name);
+        println!("캐릭터의 이름: {}", user_name);
         generater();
         }
     let word = word.trim();
@@ -30,7 +31,7 @@ fn main() {
 }
 
 fn generater() {
-    let sta = dice_roll_3(); //근력
+    let sta: i16 = dice_roll_3(); //근력
     let dex = dice_roll_3(); //민첩
     let pow = dice_roll_3(); //정신
     let con = dice_roll_3(); //건강
