@@ -30,15 +30,15 @@ fn main() {
 }
 
 fn generater() {
-    let sta = d3(); //근력
-    let dex = d3(); //민첩
-    let pow = d3(); //정신
-    let con = d3(); //건강
-    let app = d3(); //외모
-    let edu = d2(); //교육
-    let siz = d2(); //크기
-    let int = d2(); //지능
-    let luk = d3(); //행운
+    let sta = dice_roll_3(); //근력
+    let dex = dice_roll_3(); //민첩
+    let pow = dice_roll_3(); //정신
+    let con = dice_roll_3(); //건강
+    let app = dice_roll_3(); //외모
+    let edu = dice_roll_2(); //교육
+    let siz = dice_roll_2(); //크기
+    let int = dice_roll_2(); //지능
+    let luk = dice_roll_3(); //행운
     let job = edu * 4;
     let hob = pow * 2;
     let all = job + hob;
@@ -47,17 +47,12 @@ fn generater() {
     println! ("능력치 평균값  : {} \n직업점수 기댓값: {}\n관심점수 기댓값: {}\n종합점수 기댓값: {}", ave, job, hob, all);
 }
 
-fn d3() -> i16 {
-    let d1 = rand::thread_rng().gen_range(1..7); //1~6 사이의 숫자 생성
-    let d2 = rand::thread_rng().gen_range(1..7);
-    let d3 = rand::thread_rng().gen_range(1..7);
-    let d = d1+d2+d3;
-    d * 5
+fn dice_roll_3() -> i16 {
+    let d = rand::thread_rng().gen_range(3..19); //3~18 사이의 숫자 생성
+    return d * 5
 }
 
-fn d2() -> i16 {
-    let d1 = rand::thread_rng().gen_range(1..7);
-    let d2 = rand::thread_rng().gen_range(1..7);
-    let d = d1 + d2 +6;
-    d * 5
+fn dice_roll_2() -> i16 {
+    let d = rand::thread_rng().gen_range(2..13);
+    return d * 5
 }
