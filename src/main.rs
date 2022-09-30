@@ -31,7 +31,7 @@ fn main() {
 }
 
 fn generater() {
-    let sta: i16 = dice_roll_3(); //근력
+    let sta = dice_roll_3(); //근력
     let dex = dice_roll_3(); //민첩
     let pow = dice_roll_3(); //정신
     let con = dice_roll_3(); //건강
